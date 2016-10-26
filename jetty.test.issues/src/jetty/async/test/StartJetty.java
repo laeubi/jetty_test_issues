@@ -14,6 +14,7 @@ public class StartJetty {
         handler.addServletWithMapping(IncompleteWriteListenerServlet.class, "/iwl");
         handler.addServletWithMapping(TimeoutWriteListenerServlet.class, "/twl");
         handler.addServletWithMapping(BlockingTimeoutWriteListenerServlet.class, "/btwl");
+        handler.addServletWithMapping(DispatchFromTimeoutServlet.class, "/dft");
         server.start();
         server.dumpStdErr();
         server.join();

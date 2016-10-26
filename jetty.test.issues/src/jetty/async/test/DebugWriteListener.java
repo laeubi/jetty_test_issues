@@ -14,12 +14,12 @@ public class DebugWriteListener implements WriteListener {
 
     @Override
     public void onError(Throwable t) {
-        System.out.println("DebugWriteListener.onError(" + t + ")");
+        System.out.println("[" + Thread.currentThread().getName() + "] WriteListener.onError(" + t + ")");
     }
 
     @Override
     public void onWritePossible() throws IOException {
-        System.out.println("DebugWriteListener.onWritePossible()");
+        System.out.println("[" + Thread.currentThread().getName() + "] WriteListener.onWritePossible()");
     }
 
 }
