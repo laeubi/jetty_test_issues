@@ -37,7 +37,7 @@ public class BlockingTimeoutWriteListenerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Request: " + req.getRequestURI());
         final AsyncContext async = req.startAsync();
-        async.setTimeout(1);
+        async.setTimeout(TimeUnit.SECONDS.toMillis(1));
         async.addListener(new DebugAsyncListener() {
             @Override
             public void onTimeout(AsyncEvent event) throws IOException {
