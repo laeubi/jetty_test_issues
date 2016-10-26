@@ -4,6 +4,7 @@
 package jetty.async.test;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.AsyncContext;
 import javax.servlet.AsyncEvent;
@@ -37,7 +38,7 @@ public class TimeoutWriteListenerServlet extends HttpServlet {
         System.out.println("Request: " + req.getRequestURI());
         resp.setContentLength(Integer.MAX_VALUE);
         final AsyncContext async = req.startAsync();
-        async.setTimeout(1);
+        async.setTimeout(TimeUnit.SECONDS.toMillis(1));
         async.addListener(new DebugAsyncListener() {
             @Override
             public void onTimeout(AsyncEvent event) throws IOException {
