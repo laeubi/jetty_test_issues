@@ -33,7 +33,7 @@ public class IncompleteWriteListenerServlet extends HttpServlet {
         resp.setContentLength(WRITE_CHARS);
         final AsyncContext async = req.startAsync();
         async.addListener(new DebugAsyncListener());
-        async.setTimeout(TimeUnit.MINUTES.toSeconds(3));
+        async.setTimeout(TimeUnit.MINUTES.toMillis(3));
         final byte[] responsebytes = new byte[WRITE_CHARS - 10];
         for (int i = 0; i < responsebytes.length; i++) {
             if (i > 0 && i % 100 == 0) {
